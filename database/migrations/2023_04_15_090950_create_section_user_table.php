@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignIdFor(Section::class)->constrained();
             $table->foreignIdFor(User::class)->constrained();
             $table->dateTime('created_at');
-            $table->date('expires_on')->nullable();
+            $table->date('expires_on');
         });
     }
 
