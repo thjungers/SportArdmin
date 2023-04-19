@@ -13,7 +13,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $registrar = new ResourceRegistrar($this->app['router']);
+        $this->app->instance('Illuminate\Routing\ResourceRegistrar', $registrar);
     }
 
     /**
@@ -22,8 +23,5 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         JsonResource::withoutWrapping();
-
-        $registrar = new ResourceRegistrar($this->app['router']);
-        $this->app->instance('Illuminate\Routing\ResourceRegistrar', $registrar);
     }
 }
