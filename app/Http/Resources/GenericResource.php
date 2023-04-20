@@ -18,7 +18,7 @@ class GenericResource extends JsonResource
         // The route for Model is expected to be "models.show", with parameter "model"
         $kind = class_basename($this->resource);
         $routeParamName = Str::snake($kind);
-        $routeName = Str::of($kind)->snake('-')->plural()->append('.show');
+        $routeName = (string) Str::of($kind)->snake('-')->plural()->append('.show');
 
         return array_merge(
             [
