@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
-use App\Override\Routing\ResourceRegistrar;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
+use App\Override\Routing\ResourceRegistrar;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class AppServiceProvider extends ServiceProvider
@@ -15,6 +16,11 @@ class AppServiceProvider extends ServiceProvider
     {
         $registrar = new ResourceRegistrar($this->app['router']);
         $this->app->instance('Illuminate\Routing\ResourceRegistrar', $registrar);
+
+        if(App::hasDebugModeEnabled()) {
+            $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
+            $this->app->register(TelescopeServiceProvider::class);
+        }
     }
 
     /**
