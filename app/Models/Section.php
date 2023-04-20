@@ -45,9 +45,9 @@ class Section extends Model
     }
 
     /**
-     * Get all of the payement types for the Section
+     * Get all of the payment types for the Section
      */
-    public function payementTypes(): HasMany
+    public function paymentTypes(): HasMany
     {
         return $this->hasMany(PaymentTypes::class);
     }
