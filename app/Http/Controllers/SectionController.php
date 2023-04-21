@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Section;
-use App\Http\Resources\GenericResource;
 use App\Http\Resources\GenericCollection;
 use App\Http\Requests\StoreSectionRequest;
 use App\Http\Requests\UpdateSectionRequest;
+use App\Http\Resources\SectionResource;
 use Nette\NotImplementedException;
 
 class SectionController extends Controller
@@ -16,7 +16,7 @@ class SectionController extends Controller
      */
     public function index()
     {
-        return new GenericCollection(Section::all(), route('sections.index'));
+        return new GenericCollection(Section::all(), route('sections.index'), collects: SectionResource::class);
     }
 
     /**
@@ -32,7 +32,7 @@ class SectionController extends Controller
      */
     public function show(Section $section)
     {
-        return new GenericResource($section);
+        return new SectionResource($section);
     }
 
     /**

@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Nette\NotImplementedException;
 use App\Http\Resources\UserResource;
 use App\Http\Requests\StoreUserRequest;
-use App\Http\Resources\GenericResource;
+use App\Http\Resources\SectionResource;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Resources\GenericCollection;
 
@@ -37,9 +38,20 @@ class UserController extends Controller
         return new UserResource($user);
     }
 
-    public function showSections(User $user)
+    public function showSections(Request $request, User $user)
     {
-        return new GenericCollection($user->sections, route('users.sections', $user));
+        $date = $request->date('date');
+        if($date === null)
+            $date = Carbon::today();
+            
+        return new GenericCollection(
+            $user->sections()
+                 ->wherePivot('created_at', '<=', $date)
+                 ->wherePivot('expires_on', '>=', $date)
+                 ->get(), 
+            route('users.sections', $user),
+            collects: SectionResource::class,
+        );
     }
 
     /**
