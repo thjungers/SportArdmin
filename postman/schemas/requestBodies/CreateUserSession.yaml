@@ -1,0 +1,15 @@
+description: Usersession to create or replace
+required: true
+content:
+  "application/json":
+    schema:
+      type: object
+      properties:
+        is_free:
+          type: boolean
+        payment_method:
+          type: string
+          format: url:Card|Subscription
+          nullable: true
+      required:
+        - is_free

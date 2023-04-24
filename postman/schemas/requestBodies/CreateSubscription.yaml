@@ -1,0 +1,33 @@
+description: Subscription to create
+required: true
+content:
+  "application/json":
+    schema:
+      type: object
+      properties:
+        user:
+          type: string
+          format: url:User
+        section:
+          type: string
+          format: url:Section
+        amount_paid:
+          type: number
+        comment: 
+          type: string
+          nullable: true
+        payed_on:
+          type: string
+          format: date
+        valid_on:
+          type: string
+          format: date
+        expires_on:
+          type: string
+          format: date
+      required:
+        - user
+        - amount_paid
+        - payed_on
+        - valid_on
+        - expires_on

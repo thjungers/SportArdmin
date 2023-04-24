@@ -1,0 +1,46 @@
+get:
+  description: Return the card
+  tags:
+    - card
+    - payment-method
+  parameters:
+    - $ref: "../parameters/path/card_id.yaml"
+  responses:
+    "200":
+      description: The card
+      content:
+        "application/json":
+          schema:
+            $ref: "../schemas/Card.yaml"
+    "404":
+      description: The card does not exist
+patch:
+  description: Update the card
+  tags:
+    - card
+    - payment-method
+  parameters:
+    - $ref: "../parameters/path/card_id.yaml"
+  requestBody:
+    $ref: "../requestBodies/UpdateCard.yaml"
+  responses:
+    "204":
+      description: The card was updated
+    "404":
+      description: The card does not exist
+    "422":
+      $ref: "../errors/422.yaml"
+delete:
+  description: Delete the card
+  tags:
+    - card
+    - payment-method
+  parameters:
+    - $ref: "../parameters/path/card_id.yaml"
+  responses:
+    "204":
+      description: The card was deleted
+    "404":
+      description: The card does not exist
+    "409":
+      $ref: "../errors/409.yaml"

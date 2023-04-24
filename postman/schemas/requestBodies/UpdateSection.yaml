@@ -1,0 +1,11 @@
+description: Fields of the section to update
+required: true
+content:
+  "application/json":
+    schema:
+      type: object
+      properties:
+        name:
+          type: string
+        is_free:
+          type: boolean

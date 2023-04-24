@@ -1,0 +1,39 @@
+type: object
+properties:
+  self:
+    type: string
+    format: url
+  kind: 
+    type: string
+  id:
+    type: integer
+  amount_paid:
+    type: number
+  comment:
+    type: string
+    nullable: true
+  user:
+    $ref: "./User.yaml"
+  section:
+    $ref: "./Section.yaml"
+  payed_on:
+    type: string
+    format: date
+  valid_on:
+    type: string
+    format: date
+  expires_on:
+    type: string
+    format: date
+    nullable: true
+  number_of_sessions:
+    type: integer
+  remaining_sessions:
+    type: integer
+  created_at:
+    type: string
+    format: date-time
+  updated_at:
+    type: string
+    format: date-time
+    nullable: true

@@ -1,0 +1,67 @@
+openapi: 3.0.0
+info:
+  title: Sport Ardming Backend API
+  version: 0.1.0
+servers:
+  - url: localhost
+    description: Local development server
+paths:
+  /users:
+    $ref: "./endpoints/users.yaml"
+  /users/{user_id}:
+    $ref: "./endpoints/user.yaml"
+  /users/{user_id}/sections:
+    $ref: "./endpoints/user_sections.yaml"
+  /users/{user_id}/sections/{section_id}:
+    $ref: "./endpoints/user_section.yaml"
+  /users/{user_id}/registrations:
+    $ref: "./endpoints/user_registrations.yaml"
+  /users/{user_id}/registrations/{registration_id}:
+    $ref: "./endpoints/user_registration.yaml"
+  /registrations:
+    $ref: "./endpoints/registrations.yaml"
+
+  /sections:
+    $ref: "./endpoints/sections.yaml"
+  /sections/{section_id}:
+    $ref: "./endpoints/section.yaml"
+  /sections/{section_id}/users:
+    $ref: "./endpoints/section_users.yaml"
+  /sections/{section_id}/users/{user_id}:
+    $ref: "./endpoints/user_section.yaml"
+
+  /sessions:
+    $ref: "./endpoints/sessions.yaml"
+  /sessions/{session_id}:
+    $ref: "./endpoints/session.yaml"
+  /sections/{section_id}/sessions:
+    $ref: "./endpoints/section_sessions.yaml"
+
+  /users/{user_id}/sessions:
+    $ref: "./endpoints/user_usersessions.yaml"
+  /users/{user_id}/sessions/{session_id}:
+    $ref: "./endpoints/usersession.yaml"
+  /sessions/{session_id}/users:
+    $ref: "./endpoints/session_usersessions.yaml"
+  /sessions/{session_id}/users/{user_id}:
+    $ref: "./endpoints/usersession.yaml"
+
+  /users/{user_id}/payment-methods:
+    $ref: "./endpoints/user_paymentmethods.yaml"
+  /memberships:
+    $ref: "./endpoints/memberships.yaml"
+  /memberships/{membership_id}:
+    $ref: "./endpoints/membership.yaml"
+  /subscriptions:
+    $ref: "./endpoints/subscriptions.yaml"
+  /subscriptions/{subscription_id}:
+    $ref: "./endpoints/subscription.yaml"
+  /cards:
+    $ref: "./endpoints/cards.yaml"
+  /cards/{card_id}:
+    $ref: "./endpoints/card.yaml"
+
+  /payment-template:
+    $ref: "./endpoints/payment_templates.yaml"
+  /payment-template/{payment_template_id}:
+    $ref: "./endpoints/payment_template.yaml"

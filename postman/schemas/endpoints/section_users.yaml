@@ -1,0 +1,29 @@
+get:
+  description: >
+    Return all users for the section. If multiple identical users exist
+    (identified by their ID), the response only contains distinct users.
+  parameters:
+    - $ref: "../parameters/path/section_id.yaml"
+    - $ref: "../parameters/query/date.yaml"
+  tags:
+    - user
+    - section
+  responses:
+    "200":
+      description: A collection of users
+      content:
+        "application/json":
+          schema:
+            type: object
+            properties:
+              self: 
+                type: string
+                format: url
+              kind:
+                type: string
+              contents:
+                type: array
+                items:
+                  $ref: "../schemas/User.yaml"
+    "404":
+      description: The section does not exist

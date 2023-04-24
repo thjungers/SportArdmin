@@ -1,0 +1,46 @@
+get:
+  description: Return the session
+  tags:
+    - session
+    - section
+  parameters:
+    - $ref: "../parameters/path/session_id.yaml"
+  responses:
+    "200":
+      description: The session
+      content:
+        "application/json":
+          schema:
+            $ref: "../schemas/Session.yaml"
+    "404":
+      description: The session does not exist
+patch:
+  description: Update the session
+  tags:
+    - session
+    - section
+  parameters:
+    - $ref: "../parameters/path/session_id.yaml"
+  requestBody:
+    $ref: "../requestBodies/UpdateSession.yaml"
+  responses:
+    "204":
+      description: The session was updated
+    "404":
+      description: The session does not exist
+    "422":
+      $ref: "../errors/422.yaml"
+delete:
+  description: Delete the session
+  tags:
+    - session
+    - section
+  parameters:
+    - $ref: "../parameters/path/session_id.yaml"
+  responses:
+    "204":
+      description: The session was deleted
+    "404":
+      description: The session does not exist
+    "409":
+      $ref: "../errors/409.yaml"

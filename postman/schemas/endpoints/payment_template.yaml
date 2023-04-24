@@ -1,0 +1,43 @@
+get:
+  description: Return the payment template
+  tags:
+    - payment-template
+  parameters:
+    - $ref: "../parameters/path/payment_template_id.yaml"
+  responses:
+    "200":
+      description: The payment template
+      content:
+        "application/json":
+          schema:
+            $ref: "../schemas/PaymentTemplate.yaml"
+    "404":
+      description: The payment template does not exist
+patch:
+  description: Update the payment template
+  tags:
+    - payment-template
+  parameters:
+    - $ref: "../parameters/path/payment_template_id.yaml"
+  requestBody:
+    $ref: "../requestBodies/UpdatePaymentTemplate.yaml"
+  responses:
+    "204":
+      description: The payment template was updated
+    "404":
+      description: The payment template does not exist
+    "422":
+      $ref: "../errors/422.yaml"
+delete:
+  description: Delete the payment template
+  tags:
+    - payment-template
+  parameters:
+    - $ref: "../parameters/path/payment_template_id.yaml"
+  responses:
+    "204":
+      description: The payment template was deleted
+    "404":
+      description: The payment template does not exist
+    "409":
+      $ref: "../errors/409.yaml"

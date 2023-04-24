@@ -1,0 +1,6 @@
+name: registration_id
+description: The ID of the registration
+in: path
+schema:
+  type: integer
+required: true

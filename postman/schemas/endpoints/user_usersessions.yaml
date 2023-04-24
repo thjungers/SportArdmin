@@ -1,0 +1,26 @@
+get:
+  description: Return all usersessions for the user.
+  parameters:
+    - $ref: "../parameters/path/user_id.yaml"
+  tags:
+    - user
+    - usersession
+  responses:
+    "200":
+      description: A collection of usersessions
+      content:
+        "application/json":
+          schema:
+            type: object
+            properties:
+              self: 
+                type: string
+                format: url
+              kind:
+                type: string
+              contents:
+                type: array
+                items:
+                  $ref: "../schemas/UserSession.yaml"
+    "404":
+      description: The user does not exist

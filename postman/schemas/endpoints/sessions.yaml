@@ -1,0 +1,22 @@
+get:
+  description: Return all sessions
+  tags:
+    - session
+    - section
+  responses:
+    "200":
+      description: A collection of all sessions
+      content:
+        "application/json":
+          schema:
+            type: object
+            properties:
+              self: 
+                type: string
+                format: url
+              kind:
+                type: string
+              contents:
+                type: array
+                items:
+                  $ref: "../schemas/Session.yaml"

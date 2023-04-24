@@ -1,0 +1,16 @@
+description: Metadata for the relationship
+required: true
+content:
+  "application/json":
+    schema:
+      type: object
+      properties:
+        valid_on:
+          type: string
+          format: date
+        expires_on:
+          type: string
+          format: date
+      required: 
+        - valid_on
+        - expires_on

@@ -1,0 +1,13 @@
+description: Usersession to update
+required: true
+content:
+  "application/json":
+    schema:
+      type: object
+      properties:
+        is_free:
+          type: boolean
+        payment_method:
+          type: string
+          format: url:Card|Subscription
+          nullable: true

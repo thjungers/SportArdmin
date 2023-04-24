@@ -1,0 +1,42 @@
+get:
+  description: Return all payment templates
+  tags:
+    - payment-template
+  responses:
+    "200":
+      description: A collection of all payment templates
+      content:
+        "application/json":
+          schema:
+            type: object
+            properties:
+              self: 
+                type: string
+                format: url
+              kind:
+                type: string
+              contents:
+                type: array
+                items:
+                  $ref: "../schemas/PaymentTemplate.yaml"
+post:
+  description: Create a new payment template
+  tags:
+    - payment-template
+  requestBody: 
+    $ref: "../requestBodies/CreatePaymentTemplate.yaml"
+  responses:
+    "201":
+      description: The payment template was created
+      content:
+        "application/json":
+          schema:
+            $ref: "../schemas/PaymentTemplate.yaml"
+      headers:
+        Location:
+          description: The location of the created payment template
+          schema:
+            type: string
+            format: url
+    "422":
+      $ref: "../errors/422.yaml"

@@ -1,0 +1,27 @@
+get:
+  description: Return all registrations for the user
+  parameters:
+    - $ref: "../parameters/path/user_id.yaml"
+    - $ref: "../parameters/query/date.yaml"
+  tags:
+    - registration
+    - user
+  responses:
+    "200":
+      description: A collection of registrations
+      content:
+        "application/json":
+          schema:
+            type: object
+            properties:
+              self: 
+                type: string
+                format: url
+              kind:
+                type: string
+              contents:
+                type: array
+                items:
+                  $ref: "../schemas/Registration.yaml"
+    "404":
+      description: The user does not exist

@@ -1,0 +1,43 @@
+get:
+  description: Return the user
+  tags:
+    - user
+  parameters:
+    - $ref: "../parameters/path/user_id.yaml"
+  responses:
+    "200":
+      description: The user
+      content:
+        "application/json":
+          schema:
+            $ref: "../schemas/User.yaml"
+    "404":
+      description: The user does not exist
+patch:
+  description: Update the user
+  tags:
+    - user
+  parameters:
+    - $ref: "../parameters/path/user_id.yaml"
+  requestBody:
+    $ref: "../requestBodies/UpdateUser.yaml"
+  responses:
+    "204":
+      description: The user was updated
+    "404":
+      description: The user does not exist
+    "422":
+      $ref: "../errors/422.yaml"
+delete:
+  description: Delete the user
+  tags:
+    - user
+  parameters:
+    - $ref: "../parameters/path/user_id.yaml"
+  responses:
+    "204":
+      description: The user was deleted
+    "404":
+      description: The user does not exist
+    "409":
+      $ref: "../errors/409.yaml"

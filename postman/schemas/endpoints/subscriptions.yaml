@@ -1,0 +1,48 @@
+get:
+  description: Return all subscriptions
+  parameters:
+    - $ref: "../parameters/query/date.yaml"
+  tags:
+    - subscription
+    - payment-method
+  responses:
+    "200":
+      description: A collection of all subscriptions
+      content:
+        "application/json":
+          schema:
+            type: object
+            properties:
+              self: 
+                type: string
+                format: url
+              kind:
+                type: string
+              contents:
+                type: array
+                items:
+                  $ref: "../schemas/Subscription.yaml"
+post:
+  description: Create a new subscription
+  tags:
+    - subscription
+    - payment-method
+    - user
+    - section
+  requestBody: 
+    $ref: "../requestBodies/CreateSubscription.yaml"
+  responses:
+    "201":
+      description: The subscription was created
+      content:
+        "application/json":
+          schema:
+            $ref: "../schemas/Subscription.yaml"
+      headers:
+        Location:
+          description: The location of the created subscription
+          schema:
+            type: string
+            format: url
+    "422":
+      $ref: "../errors/422.yaml"

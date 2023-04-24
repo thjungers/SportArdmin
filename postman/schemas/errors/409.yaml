@@ -1,0 +1,7 @@
+description: >
+  The resource cannot be deleted because there is a conflict 
+  (e.g. it has relationships with other resources).
+content:
+  "application/json":
+    schema:
+      $ref: "./response.yaml"

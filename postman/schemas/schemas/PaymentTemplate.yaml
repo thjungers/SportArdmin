@@ -1,0 +1,27 @@
+type: object
+properties:
+  self:
+    type: string
+    format: url
+  kind: 
+    type: string
+  id:
+    type: integer
+  name:
+    type: string
+  type:
+    type: string
+    format: Card|Membership|Subscription
+  section: 
+    $ref: "./Section.yaml"
+  amount:
+    type: number
+  number_of_sessions:
+    type: integer
+    nullable: true
+  valid_on:
+    type: string
+    format: date
+  expires_on:
+    type: string
+    format: date

@@ -1,0 +1,6 @@
+name: section_id
+description: The ID of the section
+in: path
+schema:
+  type: integer
+required: true

@@ -1,0 +1,24 @@
+post:
+  description: >
+    Create a new registration. If the user is found, assign it the registration; 
+    otherwise, also create a new user.
+  tags:
+    - registration
+    - user
+  requestBody: 
+    $ref: "../requestBodies/CreateRegistration.yaml"
+  responses:
+    "201":
+      description: The registration was created
+      content:
+        "application/json":
+          schema:
+            $ref: "../schemas/Registration.yaml"
+      headers:
+        Location:
+          description: The location of the created registration
+          schema:
+            type: string
+            format: url
+    "422":
+      $ref: "../errors/422.yaml"

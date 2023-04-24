@@ -1,0 +1,14 @@
+description: Section to create
+required: true
+content:
+  "application/json":
+    schema:
+      type: object
+      properties:
+        name:
+          type: string
+        is_free:
+          type: boolean
+          default: false
+      required:
+        - name

@@ -1,0 +1,49 @@
+get:
+  description: Return the registration
+  tags:
+    - registration
+    - user
+  parameters:
+    - $ref: "../parameters/path/user_id.yaml"
+    - $ref: "../parameters/path/registration_id.yaml"
+  responses:
+    "200":
+      description: The registration
+      content:
+        "application/json":
+          schema:
+            $ref: "../schemas/Registration.yaml"
+    "404":
+      description: The user or the registration does not exist
+patch:
+  description: Update the registration
+  tags:
+    - registration
+    - user
+  parameters:
+    - $ref: "../parameters/path/user_id.yaml"
+    - $ref: "../parameters/path/registration_id.yaml"
+  requestBody:
+    $ref: "../requestBodies/UpdateRegistration.yaml"
+  responses:
+    "204":
+      description: The registration was updated
+    "404":
+      description: The registration does not exist
+    "422":
+      $ref: "../errors/422.yaml"
+delete:
+  description: Delete the registration
+  tags:
+    - registration
+    - user
+  parameters:
+    - $ref: "../parameters/path/user_id.yaml"
+    - $ref: "../parameters/path/registration_id.yaml"
+  responses:
+    "204":
+      description: The registration was deleted
+    "404":
+      description: The registration does not exist
+    "409":
+      $ref: "../errors/409.yaml"

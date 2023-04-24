@@ -1,0 +1,47 @@
+get:
+  description: Return all memberships
+  parameters:
+    - $ref: "../parameters/query/date.yaml"
+  tags:
+    - membership
+    - payment-method
+  responses:
+    "200":
+      description: A collection of all memberships
+      content:
+        "application/json":
+          schema:
+            type: object
+            properties:
+              self: 
+                type: string
+                format: url
+              kind:
+                type: string
+              contents:
+                type: array
+                items:
+                  $ref: "../schemas/Membership.yaml"
+post:
+  description: Create a new membership
+  tags:
+    - membership
+    - payment-method
+    - user
+  requestBody: 
+    $ref: "../requestBodies/CreateMembership.yaml"
+  responses:
+    "201":
+      description: The membership was created
+      content:
+        "application/json":
+          schema:
+            $ref: "../schemas/Membership.yaml"
+      headers:
+        Location:
+          description: The location of the created membership
+          schema:
+            type: string
+            format: url
+    "422":
+      $ref: "../errors/422.yaml"

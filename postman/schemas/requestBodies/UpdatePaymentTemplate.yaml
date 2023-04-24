@@ -1,0 +1,23 @@
+description: Fields of the payment template to update
+required: true
+content:
+  "application/json":
+    schema:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+          format: Card|Membership|Subscription
+        amount:
+          type: number
+        number_of_sessions:
+          type: integer
+          nullable: true
+        valid_on:
+          type: string
+          format: date
+        expires_on:
+          type: string
+          format: date

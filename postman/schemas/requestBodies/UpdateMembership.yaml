@@ -1,0 +1,21 @@
+description: Fields of the membership to update
+required: true
+content:
+  "application/json":
+    schema:
+      type: object
+      properties:
+        amount_paid:
+          type: number
+        comment: 
+          type: string
+          nullable: true
+        payed_on:
+          type: string
+          format: date
+        valid_on:
+          type: string
+          format: date
+        expires_on:
+          type: string
+          format: date

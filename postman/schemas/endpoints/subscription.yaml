@@ -1,0 +1,46 @@
+get:
+  description: Return the subscription
+  tags:
+    - subscription
+    - payment-method
+  parameters:
+    - $ref: "../parameters/path/subscription_id.yaml"
+  responses:
+    "200":
+      description: The subscription
+      content:
+        "application/json":
+          schema:
+            $ref: "../schemas/Subscription.yaml"
+    "404":
+      description: The subscription does not exist
+patch:
+  description: Update the subscription
+  tags:
+    - subscription
+    - payment-method
+  parameters:
+    - $ref: "../parameters/path/subscription_id.yaml"
+  requestBody:
+    $ref: "../requestBodies/UpdateSubscription.yaml"
+  responses:
+    "204":
+      description: The subscription was updated
+    "404":
+      description: The subscription does not exist
+    "422":
+      $ref: "../errors/422.yaml"
+delete:
+  description: Delete the subscription
+  tags:
+    - subscription
+    - payment-method
+  parameters:
+    - $ref: "../parameters/path/subscription_id.yaml"
+  responses:
+    "204":
+      description: The subscription was deleted
+    "404":
+      description: The subscription does not exist
+    "409":
+      $ref: "../errors/409.yaml"

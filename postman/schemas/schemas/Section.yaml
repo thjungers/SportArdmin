@@ -1,0 +1,13 @@
+type: object
+properties:
+  self:
+    type: string
+    format: url
+  kind: 
+    type: string
+  id:
+    type: integer
+  name:
+    type: string
+  is_free:
+    type: boolean

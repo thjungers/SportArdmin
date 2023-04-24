@@ -1,0 +1,6 @@
+name: card_id
+description: The ID of the card
+in: path
+schema:
+  type: integer
+required: true

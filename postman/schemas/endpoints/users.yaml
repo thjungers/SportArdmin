@@ -1,0 +1,42 @@
+get:
+  description: Return all users
+  tags:
+    - user
+  responses:
+    "200":
+      description: A collection of all users
+      content:
+        "application/json":
+          schema:
+            type: object
+            properties:
+              self: 
+                type: string
+                format: url
+              kind:
+                type: string
+              contents:
+                type: array
+                items:
+                  $ref: "../schemas/User.yaml"
+post:
+  description: Create a new user
+  tags:
+    - user
+  requestBody: 
+    $ref: "../requestBodies/CreateUser.yaml"
+  responses:
+    "201":
+      description: The user was created
+      content:
+        "application/json":
+          schema:
+            $ref: "../schemas/User.yaml"
+      headers:
+        Location:
+          description: The location of the created user
+          schema:
+            type: string
+            format: url
+    "422":
+      $ref: "../errors/422.yaml"

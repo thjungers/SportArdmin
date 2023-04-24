@@ -1,0 +1,13 @@
+description: Fields of the session to update
+required: true
+content:
+  "application/json":
+    schema:
+      type: object
+      properties:
+        start_at:
+          type: string
+          format: date-time
+        end_at:
+          type: string
+          format: date-time

@@ -1,0 +1,5 @@
+description: The request body is invalid
+content:
+  "application/json":
+    schema:
+      $ref: "./response.yaml"

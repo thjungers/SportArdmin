@@ -1,0 +1,50 @@
+get:
+  description: Return all sessions for the section.
+  parameters:
+    - $ref: "../parameters/path/section_id.yaml"
+  tags:
+    - section
+    - session
+  responses:
+    "200":
+      description: A collection of sessions
+      content:
+        "application/json":
+          schema:
+            type: object
+            properties:
+              self: 
+                type: string
+                format: url
+              kind:
+                type: string
+              contents:
+                type: array
+                items:
+                  $ref: "../schemas/Session.yaml"
+    "404":
+      description: The section does not exist
+post:
+  description: Create a new session for this section
+  tags:
+    - section
+    - session
+  parameters:
+    - $ref: "../parameters/path/section_id.yaml"
+  requestBody: 
+    $ref: "../requestBodies/CreateSession.yaml"
+  responses:
+    "201":
+      description: The session was created
+      content:
+        "application/json":
+          schema:
+            $ref: "../schemas/Session.yaml"
+      headers:
+        Location:
+          description: The location of the created session
+          schema:
+            type: string
+            format: url
+    "422":
+      $ref: "../errors/422.yaml"

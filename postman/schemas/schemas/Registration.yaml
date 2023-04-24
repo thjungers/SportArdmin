@@ -1,0 +1,29 @@
+type: object
+properties:
+  self:
+    type: string
+    format: url
+  kind: 
+    type: string
+  id:
+    type: integer
+  user:
+    $ref: "./User.yaml"
+  date_of_birth:
+    type: string
+    format: date
+  phone:
+    type: string
+  valid_on:
+    type: string
+    format: date
+  expires_on:
+    type: string
+    format: date
+  created_at:
+    type: string
+    format: date-time
+  updated_at:
+    type: string
+    format: date-time
+    nullable: true

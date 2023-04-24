@@ -1,0 +1,46 @@
+get:
+  description: Return the membership
+  tags:
+    - membership
+    - payment-method
+  parameters:
+    - $ref: "../parameters/path/membership_id.yaml"
+  responses:
+    "200":
+      description: The membership
+      content:
+        "application/json":
+          schema:
+            $ref: "../schemas/Membership.yaml"
+    "404":
+      description: The membership does not exist
+patch:
+  description: Update the membership
+  tags:
+    - membership
+    - payment-method
+  parameters:
+    - $ref: "../parameters/path/membership_id.yaml"
+  requestBody:
+    $ref: "../requestBodies/UpdateMembership.yaml"
+  responses:
+    "204":
+      description: The membership was updated
+    "404":
+      description: The membership does not exist
+    "422":
+      $ref: "../errors/422.yaml"
+delete:
+  description: Delete the membership
+  tags:
+    - membership
+    - payment-method
+  parameters:
+    - $ref: "../parameters/path/membership_id.yaml"
+  responses:
+    "204":
+      description: The membership was deleted
+    "404":
+      description: The membership does not exist
+    "409":
+      $ref: "../errors/409.yaml"

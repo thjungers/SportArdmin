@@ -1,0 +1,43 @@
+get:
+  description: Return the section
+  tags:
+    - section
+  parameters:
+    - $ref: "../parameters/path/section_id.yaml"
+  responses:
+    "200":
+      description: The section
+      content:
+        "application/json":
+          schema:
+            $ref: "../schemas/Section.yaml"
+    "404":
+      description: The section does not exist
+patch:
+  description: Update the section
+  tags:
+    - section
+  parameters:
+    - $ref: "../parameters/path/section_id.yaml"
+  requestBody:
+    $ref: "../requestBodies/UpdateSection.yaml"
+  responses:
+    "204":
+      description: The section was updated
+    "404":
+      description: The section does not exist
+    "422":
+      $ref: "../errors/422.yaml"
+delete:
+  description: Delete the section
+  tags:
+    - section
+  parameters:
+    - $ref: "../parameters/path/section_id.yaml"
+  responses:
+    "204":
+      description: The section was deleted
+    "404":
+      description: The section does not exist
+    "409":
+      $ref: "../errors/409.yaml"

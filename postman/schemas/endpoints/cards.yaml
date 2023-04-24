@@ -1,0 +1,48 @@
+get:
+  description: Return all cards
+  parameters:
+    - $ref: "../parameters/query/date.yaml"
+  tags:
+    - card
+    - payment-method
+  responses:
+    "200":
+      description: A collection of all cards
+      content:
+        "application/json":
+          schema:
+            type: object
+            properties:
+              self: 
+                type: string
+                format: url
+              kind:
+                type: string
+              contents:
+                type: array
+                items:
+                  $ref: "../schemas/Card.yaml"
+post:
+  description: Create a new card
+  tags:
+    - card
+    - payment-method
+    - user
+    - section
+  requestBody: 
+    $ref: "../requestBodies/CreateCard.yaml"
+  responses:
+    "201":
+      description: The card was created
+      content:
+        "application/json":
+          schema:
+            $ref: "../schemas/Card.yaml"
+      headers:
+        Location:
+          description: The location of the created card
+          schema:
+            type: string
+            format: url
+    "422":
+      $ref: "../errors/422.yaml"

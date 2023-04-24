@@ -1,0 +1,9 @@
+name: date
+description: >
+  The reference date: only objects for which the date is between fields
+  valid_on and expires_on are returned. Defaults to now.
+in: query
+schema:
+  type: string
+  format: date
+required: false

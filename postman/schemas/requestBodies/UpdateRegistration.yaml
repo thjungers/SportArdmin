@@ -1,0 +1,18 @@
+description: Fields of the registration to update
+required: true
+content:
+  "application/json":
+    schema:
+      type: object
+      properties:
+        date_of_birth:
+          type: string
+          format: date
+        phone:
+          type: string
+        valid_on:
+          type: string
+          format: date
+        expires_on:
+          type: string
+          format: date

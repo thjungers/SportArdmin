@@ -1,0 +1,84 @@
+get:
+  description: Return the usersession
+  tags:
+    - user
+    - session
+    - usersession
+  parameters:
+    - $ref: "../parameters/path/user_id.yaml"
+    - $ref: "../parameters/path/session_id.yaml"
+  responses:
+    "200":
+      description: The usersession
+      content:
+        "application/json":
+          schema:
+            $ref: "../schemas/UserSession.yaml"
+    "404":
+      description: The user, session or usersession does not exist
+      content:
+        "application/json":
+          schema:
+            $ref: "../errors/response.yaml"
+put:
+  description: Create or replace the usersession
+  tags:
+    - user
+    - session
+    - usersession
+  parameters:
+    - $ref: "../parameters/path/user_id.yaml"
+    - $ref: "../parameters/path/session_id.yaml"
+  requestBody:
+    $ref: "../requestBodies/CreateUserSession.yaml"
+  responses:
+    "204":
+      description: The usersession was created or replaced
+    "404":
+      description: The user or session does not exist
+      content:
+        "application/json":
+          schema:
+            $ref: "../errors/response.yaml"
+    "422":
+      $ref: "../errors/422.yaml"
+patch:
+  description: Update the usersession
+  tags:
+    - user
+    - session
+    - usersession
+  parameters:
+    - $ref: "../parameters/path/user_id.yaml"
+    - $ref: "../parameters/path/session_id.yaml"
+  requestBody:
+    $ref: "../requestBodies/UpdateUserSession.yaml"
+  responses:
+    "204":
+      description: The usersession was updated
+    "404":
+      description: The user, session or usersession does not exist
+      content:
+        "application/json":
+          schema:
+            $ref: "../errors/response.yaml"
+    "422":
+      $ref: "../errors/422.yaml"
+delete:
+  description: Delete the usersession
+  tags:
+    - user
+    - session
+    - usersession
+  parameters:
+    - $ref: "../parameters/path/user_id.yaml"
+    - $ref: "../parameters/path/session_id.yaml"
+  responses:
+    "204":
+      description: The usersession was deleted
+    "404":
+      description: The user, session or usersession does not exist
+      content:
+        "application/json":
+          schema:
+            $ref: "../errors/response.yaml"

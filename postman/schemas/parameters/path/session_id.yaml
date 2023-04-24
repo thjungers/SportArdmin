@@ -1,0 +1,6 @@
+name: session_id
+description: The ID of the session
+in: path
+schema:
+  type: integer
+required: true
