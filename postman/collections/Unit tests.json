@@ -2563,9 +2563,9 @@
 									"\r",
 									"pm.test(\"Response has valid properties\", () => {\r",
 									"    let response = pm.response.json()\r",
-									"    pm.expect(response.self, \"Invalid self\").to.equal(pm.variables.replaceIn(\"{{baseUrl}}/users\"))\r",
-									"    pm.expect(response.kind, \"Invalid kind\").to.equal(\"Collection\")\r",
-									"    pm.expect(response.count, \"Invalid count\").to.equal(response.contents.length)\r",
+									"    pm.expect(response).to.have.property(\"self\", pm.variables.replaceIn(\"{{baseUrl}}/users\"))\r",
+									"    pm.expect(response).to.have.property(\"kind\", \"Collection\")\r",
+									"    pm.expect(response).to.have.property(\"count\", response.contents.length)\r",
 									"    pm.expect(response.contents.every(elm => elm.kind === \"User\"), \"Invalid contents.kind\").to.be.true\r",
 									"})"
 								],
@@ -8356,17 +8356,17 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "fb191ad1-2cec-42ef-8add-e62b49114d5f",
+				"id": "985c5865-6da5-4e14-951d-42eaffe74b7f",
 				"type": "text/javascript",
 				"exec": [
-					""
+					"pm.request.headers.add({key: 'Accept', value: 'application/json' });"
 				]
 			}
 		},
 		{
 			"listen": "test",
 			"script": {
-				"id": "82729383-55ef-4e89-9544-9e461abb9730",
+				"id": "8ef3c81a-ae3e-4244-9ce5-5349397f28e1",
 				"type": "text/javascript",
 				"exec": [
 					""
