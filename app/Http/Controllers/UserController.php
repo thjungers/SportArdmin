@@ -19,7 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return new GenericCollection(User::with('sections')->get(), 'users.index', collects: UserResource::class);
+        return new GenericCollection(User::with('sections')->get(), route('users.index'), collects: UserResource::class);
     }
 
     /**
