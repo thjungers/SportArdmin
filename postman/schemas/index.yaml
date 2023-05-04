@@ -16,11 +16,11 @@ paths:
     $ref: "./endpoints/user_section.yaml"
   /users/{user_id}/registrations:
     $ref: "./endpoints/user_registrations.yaml"
-  /users/{user_id}/registrations/{registration_id}:
-    $ref: "./endpoints/user_registration.yaml"
   /registrations:
     $ref: "./endpoints/registrations.yaml"
-
+  /registrations/{registration_id}:
+    $ref: "./endpoints/registration.yaml"
+  
   /sections:
     $ref: "./endpoints/sections.yaml"
   /sections/{section_id}:

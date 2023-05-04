@@ -9,6 +9,14 @@ properties:
     type: integer
   user:
     $ref: "./User.yaml"
+    nullable: true
+  first_name:
+    type: string
+  last_name: 
+    type: string
+  email: 
+    type: string
+    format: email
   date_of_birth:
     type: string
     format: date
@@ -27,3 +35,7 @@ properties:
     type: string
     format: date-time
     nullable: true
+  sections: 
+    type: array
+    items:
+      type: string

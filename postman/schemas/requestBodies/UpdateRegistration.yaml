@@ -16,3 +16,6 @@ content:
         expires_on:
           type: string
           format: date
+        user_id:
+          type: integer
+          nullable: true

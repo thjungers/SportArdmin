@@ -1,7 +1,7 @@
 post:
   description: >
     Create a new registration. If the user is found, assign it the registration; 
-    otherwise, also create a new user.
+    otherwise, set the user_id to NULL. The registration will be assigned later manually.
   tags:
     - registration
     - user
@@ -9,16 +9,8 @@ post:
     $ref: "../requestBodies/CreateRegistration.yaml"
   responses:
     "201":
-      description: The registration was created
-      content:
-        "application/json":
-          schema:
-            $ref: "../schemas/Registration.yaml"
-      headers:
-        Location:
-          description: The location of the created registration
-          schema:
-            type: string
-            format: url
+      description: >
+        The registration was created. No response is returned for privacy reasons, 
+        since this is accessed from the public website.
     "422":
       $ref: "../errors/422.yaml"

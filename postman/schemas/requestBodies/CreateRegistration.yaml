@@ -5,20 +5,13 @@ content:
     schema:
       type: object
       properties:
-        user:
-          type: object
-          properties:
-            first_name:
-              type: string
-            last_name:
-              type: string
-            email:
-              type: string
-              format: email
-          required:
-            - first_name
-            - last_name
-            - email              
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+          format: email           
         date_of_birth:
           type: string
           format: date
@@ -30,9 +23,16 @@ content:
         expires_on:
           type: string
           format: date
+        sections:
+          type: array
+          items:
+            type: string
       required:
-        - user
+        - first_name
+        - last_name
+        - email
         - date_of_birth
         - phone
         - valid_on
         - expires_on
+        - sections
