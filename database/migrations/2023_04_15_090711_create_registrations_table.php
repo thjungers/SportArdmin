@@ -14,12 +14,17 @@ return new class extends Migration
     {
         Schema::create('registrations', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class)->constrained();
+            $table->foreignIdFor(User::class)->nullable()->constrained();
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('email');
             $table->date('date_of_birth');
             $table->string('address', 255);
             $table->string('phone', 20);
             $table->timestamps();
+            $table->date('valid_on');
             $table->date('expires_on');
+            $table->json('sections');
         });
     }
 
