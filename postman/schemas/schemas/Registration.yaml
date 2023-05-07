@@ -20,6 +20,8 @@ properties:
   date_of_birth:
     type: string
     format: date
+  address:
+    type: string
   phone:
     type: string
   valid_on:
